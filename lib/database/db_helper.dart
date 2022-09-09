@@ -62,4 +62,9 @@ class Dbhelper {
     return await dbClient!
         .delete(tableName, where: '$coloumId', whereArgs: [id]);
   }
+
+  Future<int?> saveKontak(Kontak kontak) async {
+    var dbClient = await _db;
+    return await dbClient!.insert(tableName, kontak.toMap());
+  }
 }
